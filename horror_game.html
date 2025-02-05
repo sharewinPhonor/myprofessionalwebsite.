@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Horror Game</title>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            display: block;
+            margin: 50px auto;
+            background-color: #222;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>2D Horror Game</h1>
+    <canvas id="gameCanvas" width="500" height="500"></canvas>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let player = { x: 50, y: 50, size: 20, color: 'red' };
+
+        function drawPlayer() {
+            ctx.fillStyle = player.color;
+            ctx.fillRect(player.x, player.y, player.size, player.size);
+        }
+
+        function movePlayer(event) {
+            if (event.key === 'ArrowUp') player.y -= 10;
+            if (event.key === 'ArrowDown') player.y += 10;
+            if (event.key === 'ArrowLeft') player.x -= 10;
+            if (event.key === 'ArrowRight') player.x += 10;
+            draw();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPlayer();
+        }
+
+        window.addEventListener('keydown', movePlayer);
+        draw(); // Initial draw
+    </script>
+
+</body>
+</html>
