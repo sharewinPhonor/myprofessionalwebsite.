@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            text-align: center;
+        }
+        .input-box {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MP3 Downloader from TikTok</h1>
+    </header>
+
+    <div class="container">
+        <h3>Enter TikTok Video Link</h3>
+        <input type="text" id="tiktokLink" class="input-box" placeholder="Paste TikTok link here" />
+        <button onclick="downloadMP3()">Download MP3</button>
+        <p id="status"></p>
+    </div>
+
+    <script>
+        function downloadMP3() {
+            const link = document.getElementById('tiktokLink').value;
+            if (link) {
+                document.getElementById('status').textContent = "Processing MP3 download... (Simulated)";
+                setTimeout(() => {
+                    document.getElementById('status').textContent = "Download ready! (This is a simulation)";
+                }, 3000);
+            } else {
+                alert("Please enter a TikTok link!");
+            }
+        }
+    </script>
+
+</body>
+</html>
